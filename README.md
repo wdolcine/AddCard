@@ -5,7 +5,7 @@
 This app save the cards in a lite database and displays the cards in the mainActivity and allows the user to move into an other card and can delete it too. This app also have some animations while displaying the cards and moving from mainActivity to AddCardActivity and so on. When the user select the right answer it displays some konfetti animation , colored the answer to green.
 ### App Walk-though
 
-<img src="YOUR_GIF_URL_HERE" width=200><br>
+<img src="https://github.com/wdolcine/AddCard/blob/master/Add_card%20(2).gif" width=200><br>
 
 
 
