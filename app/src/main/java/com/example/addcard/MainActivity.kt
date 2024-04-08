@@ -39,6 +39,70 @@ class MainActivity : AppCompatActivity() {
         val flashcardAnswer = this.findViewById<TextView>(R.id.flashcard_answer)
         val flashcardAnswer1 = findViewById<TextView>(R.id.flashcard_answer1)
         val flashcardAnswer2 = findViewById<TextView>(R.id.flashcard_answer2)
+        val timer            = findViewById<TextView>(R.id.counterclock)
+        val konfettiView = findViewById<KonfettiView>(R.id.konfettiView)
+
+
+        val party = Party(
+            speed = 0f,
+            maxSpeed = 30f,
+            damping = 0.9f,
+            spread = 360,
+            colors = listOf(0xfce18a, 0xff726d, 0xf4306d, 0xb48def),
+            emitter = Emitter(duration = 100, TimeUnit.MILLISECONDS).max(100),
+            position = Position.Relative(0.5, 0.3)
+        )
+
+        flashcardAnswer.setOnClickListener  {
+            flashcardAnswer.setBackgroundColor(resources.getColor(R.color.green,null))
+            flashcardAnswer1.setBackgroundColor(resources.getColor(R.color.pinK,null))
+            flashcardAnswer2.setBackgroundColor(resources.getColor(R.color.pinK,null))
+            konfettiView.start(party)
+        }
+        flashcardAnswer1.setOnClickListener {
+            flashcardAnswer1.setBackgroundColor(resources.getColor(R.color.red,null))
+            flashcardAnswer.setBackgroundColor(resources.getColor(R.color.pinK,null))
+            flashcardAnswer2.setBackgroundColor(resources.getColor(R.color.pinK,null))
+        }
+        flashcardAnswer2.setOnClickListener {
+            flashcardAnswer2.setBackgroundColor(resources.getColor(R.color.red,null))
+            flashcardAnswer.setBackgroundColor(resources.getColor(R.color.pinK,null))
+            flashcardAnswer1.setBackgroundColor(resources.getColor(R.color.pinK,null))
+        }
+
+        countDownTimer = object:CountDownTimer(16000,remainingTimeInMillis){
+            @SuppressLint("SetTextI18n")
+            override fun onTick(millisUntilFinished: Long) {
+                timer.text = "" + millisUntilFinished / remainingTimeInMillis
+            }
+            override fun onFinish() {
+
+            }
+        }
+
+        leftOutAnim = AnimationUtils.loadAnimation(this, R.anim.left_out)
+        rightInAnim = AnimationUtils.loadAnimation(this, R.anim.right_in)
+
+
+        rightInAnim.setAnimationListener(object : Animation.AnimationListener{
+
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+            }
+            override fun onAnimationRepeat(animation: Animation?) {}
+
+        })
+
+
+        leftOutAnim.setAnimationListener(object : Animation.AnimationListener{
+
+            override fun onAnimationStart(animation: Animation?) {}
+            override fun onAnimationEnd(animation: Animation?) {
+            }
+            override fun onAnimationRepeat(animation: Animation?) {}
+
+        })
+
 
         val crossMain = findViewById<View>(R.id.imageButton3)
         val editbtn   = findViewById<View>(R.id.imageButton)
@@ -125,7 +189,6 @@ class MainActivity : AppCompatActivity() {
             flashcardAnswer2.text = allFlashcards[0].wrongAnswer2
 
         }
-
 
 
         nextBtn.setOnClickListener {
