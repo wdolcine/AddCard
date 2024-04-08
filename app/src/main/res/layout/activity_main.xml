@@ -14,7 +14,7 @@
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="70dp"
         android:layout_marginEnd="10dp"
         android:background="@drawable/cardbackground"
         android:elevation="5dp"
@@ -22,8 +22,7 @@
         android:text=""
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="40sp"
-        />
+        android:textSize="40sp" />
 
     <TextView
         android:id="@+id/flashcard_answer"
@@ -31,7 +30,7 @@
         android:layout_height="70dp"
         android:layout_below="@id/flashcard_question"
         android:layout_marginStart="20dp"
-        android:layout_marginTop="169dp"
+        android:layout_marginTop="150dp"
         android:layout_marginEnd="20dp"
         android:background="@color/pinK"
         android:elevation="5dp"
@@ -82,7 +81,7 @@
         android:layout_height="wrap_content"
         android:src="@drawable/icon_cross"
         android:background="@color/white"
-        android:layout_marginTop="720dp"
+        android:layout_marginTop="740dp"
         android:layout_marginStart="330dp"
         />
 
@@ -92,7 +91,7 @@
         android:layout_height="wrap_content"
         app:srcCompat="@drawable/icon_edit"
         android:background="@color/white"
-        android:layout_marginTop="720dp"
+        android:layout_marginTop="740dp"
         android:layout_marginStart="20dp"
         />
 
@@ -101,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="330dp"
-        android:layout_marginTop="280dp"
+        android:layout_marginTop="300dp"
         android:background="@color/white"
         app:srcCompat="@drawable/icon_moveto" />
 
@@ -110,8 +109,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="170dp"
-        android:layout_marginTop="720dp"
+        android:layout_marginTop="740dp"
         android:background="@color/white"
         app:srcCompat="@drawable/icon_delete" />
+
+    <TextView
+        android:id="@+id/counterclock"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="10dp"
+        android:elevation="5dp"
+        android:text=""
+        android:textAlignment="center"
+        android:textColor="@color/red"
+        android:textSize="30sp"
+        />
+    <nl.dionsegijn.konfetti.xml.KonfettiView
+        android:id="@+id/konfettiView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 
 </RelativeLayout>
